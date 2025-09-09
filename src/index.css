@@ -113,6 +113,34 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  .theme-light {
+    /* Light mode overrides */
+    --vscode-bg: 248 248 248;
+    --vscode-bg-lighter: 255 255 255;
+    --vscode-bg-darker: 240 240 240;
+    
+    --vscode-text: 51 51 51;
+    --vscode-text-muted: 96 96 96;
+    --vscode-text-dim: 128 128 128;
+    
+    --vscode-blue: 0 122 204;
+    --vscode-green: 0 128 0;
+    --vscode-orange: 255 140 0;
+    --vscode-red: 205 49 49;
+    --vscode-purple: 175 0 219;
+    
+    --vscode-border: 229 229 229;
+    --vscode-hover: 245 245 245;
+    --vscode-selection: 0 122 204 / 0.1;
+
+    --background: var(--vscode-bg);
+    --foreground: var(--vscode-text);
+    --card: var(--vscode-bg-lighter);
+    --popover: var(--vscode-bg-lighter);
+    --muted: var(--vscode-bg-darker);
+    --border: var(--vscode-border);
+  }
 }
 
 @layer base {

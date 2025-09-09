@@ -1,7 +1,7 @@
-import { Navigator } from "@/components/Navigator";
+import { DemoMockups } from "@/components/DemoMockups";
 
 const Index = () => {
-  return <Navigator className="w-full" />;
+  return <DemoMockups />;
 };
 
 export default Index;
