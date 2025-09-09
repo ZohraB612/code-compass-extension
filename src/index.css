@@ -2,41 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* VS Code Navigator Extension Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* VS Code Dark Theme Colors */
+    --vscode-bg: 220 13% 18%;
+    --vscode-bg-lighter: 220 13% 22%;
+    --vscode-bg-darker: 220 13% 14%;
+    
+    --vscode-text: 0 0% 88%;
+    --vscode-text-muted: 0 0% 70%;
+    --vscode-text-dim: 0 0% 55%;
+    
+    --vscode-blue: 207 89% 54%;
+    --vscode-blue-dim: 207 89% 44%;
+    --vscode-green: 95 76% 60%;
+    --vscode-orange: 35 100% 65%;
+    --vscode-red: 0 82% 66%;
+    --vscode-purple: 261 69% 70%;
+    
+    --vscode-border: 220 13% 28%;
+    --vscode-hover: 220 13% 25%;
+    --vscode-selection: 207 89% 54% / 0.15;
+    
+    /* Design System */
+    --background: var(--vscode-bg);
+    --foreground: var(--vscode-text);
+    
+    --card: var(--vscode-bg-lighter);
+    --card-foreground: var(--vscode-text);
+    
+    --popover: var(--vscode-bg-darker);
+    --popover-foreground: var(--vscode-text);
+    
+    --primary: var(--vscode-blue);
+    --primary-foreground: var(--vscode-bg);
+    
+    --secondary: var(--vscode-bg-lighter);
+    --secondary-foreground: var(--vscode-text);
+    
+    --muted: var(--vscode-bg-lighter);
+    --muted-foreground: var(--vscode-text-muted);
+    
+    --accent: var(--vscode-blue);
+    --accent-foreground: var(--vscode-bg);
+    
+    --destructive: var(--vscode-red);
+    --destructive-foreground: var(--vscode-text);
+    
+    --border: var(--vscode-border);
+    --input: var(--vscode-bg-lighter);
+    --ring: var(--vscode-blue);
+    
+    --radius: 0.25rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +121,63 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+  }
+}
+
+@layer components {
+  /* Navigator Extension Styles */
+  .navigator-panel {
+    @apply bg-popover border border-border rounded shadow-xl;
+    @apply animate-in slide-in-from-top-2 fade-in-0 duration-200;
+  }
+  
+  .navigator-section {
+    @apply border-b border-border last:border-b-0;
+  }
+  
+  .navigator-section-header {
+    @apply flex items-center justify-between p-3 hover:bg-muted/50 cursor-pointer transition-colors;
+  }
+  
+  .navigator-section-content {
+    @apply overflow-hidden transition-all duration-200 ease-in-out;
+  }
+  
+  .code-snippet {
+    @apply bg-muted/30 border border-muted-foreground/20 rounded text-sm font-mono p-2;
+  }
+  
+  .syntax-keyword {
+    @apply text-vscode-purple;
+  }
+  
+  .syntax-function {
+    @apply text-vscode-blue;
+  }
+  
+  .syntax-string {
+    @apply text-vscode-green;
+  }
+  
+  .syntax-comment {
+    @apply text-vscode-text-dim italic;
+  }
+  
+  .trace-button {
+    @apply inline-flex items-center gap-1 px-2 py-1 text-xs bg-primary/10 hover:bg-primary/20;
+    @apply text-primary border border-primary/30 rounded transition-colors;
+  }
+  
+  .impact-high {
+    @apply text-vscode-red bg-vscode-red/10 border-vscode-red/30;
+  }
+  
+  .impact-medium {
+    @apply text-vscode-orange bg-vscode-orange/10 border-vscode-orange/30;
+  }
+  
+  .impact-low {
+    @apply text-vscode-green bg-vscode-green/10 border-vscode-green/30;
   }
 }
